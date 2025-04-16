@@ -1,6 +1,5 @@
 package com.booksajo.bookPanda.shippping.controller;
 
-import com.booksajo.bookPanda.order.dto.response.OrderResponseDto;
 import com.booksajo.bookPanda.shippping.dto.ShippingRequestDto;
 import com.booksajo.bookPanda.shippping.dto.ShippingResponseDto;
 import com.booksajo.bookPanda.shippping.dto.UpdateShippingRequestDto;

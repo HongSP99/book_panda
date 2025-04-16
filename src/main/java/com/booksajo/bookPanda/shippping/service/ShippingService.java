@@ -2,7 +2,6 @@ package com.booksajo.bookPanda.shippping.service;
 
 import com.booksajo.bookPanda.order.constant.Status;
 import com.booksajo.bookPanda.order.domain.Order;
-import com.booksajo.bookPanda.order.dto.response.OrderResponseDto;
 import com.booksajo.bookPanda.order.repository.OrderRepository;
 import com.booksajo.bookPanda.shippping.domain.Shipping;
 import com.booksajo.bookPanda.shippping.dto.ShippingRequestDto;
