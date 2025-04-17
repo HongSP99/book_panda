@@ -1,20 +1,53 @@
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/mydatabase?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: springstudent
-    password: springstudent
+    url: jdbc:h2:~/test;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;
+    username: sa
   jpa:
-    database-platform: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: update # 애플리케이션을 시작할 때마다 스키마를 업데이트하지 않도록 설정
+      ddl-auto: create-drop
+    open-in-view: false
     properties:
       hibernate:
+        show_sql: true
         format_sql: true
-        show_sql: true # 올바른 속성 이름을 사용하여 설정 수정
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+
+  task:
+    scheduling:
+      pool:
+        size: 10
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: woomoon1107@gmail.com
+    password: tglf mvgq spmx lwiv
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.timeout: 5000
+      mail.smtp.starttls.enable: true
+
+  h2:
+    console:
+      enabled: true
+  redis:
+    host: localhost
+    port: 6379
 
 jwt:
   header: Authorization
-  #HS512 알고리즘을 사용할 것이기 때문에 512bit, 즉 64byte 이상의 secret key를 사용해야 한다.
   secret: 64461f01e1af406da538b9c48d801ce59142452199ff112fb5404c8e7e98e3ff
-  token-validity-in-seconds: 86400 # ttl (초)
+  token-validity-in-seconds: 86400
+
+iamport:
+  api_key: 8114051028354368
+  api_secret: EBUlx9b3D8SXaTQjJqeMi6f4AiKdxOIw0fAaYI9VTSvSBsxpKg95tFKajbRd919mKImxX9Rzxsfi9h9f
+  api_url: https://api.iamport.kr
+
+logging:
+  level:
+    org.springframework: info
+    org.springframework.web: info

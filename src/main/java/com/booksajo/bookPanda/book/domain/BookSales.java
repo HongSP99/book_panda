@@ -47,6 +47,6 @@ public class BookSales {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "user", nullable = false)
+    @JoinColumn(name = "users", nullable = false)
     private User user;
 }
