@@ -1,11 +1,29 @@
 spring:
-  datasource :
-    url: jdbc:h2:mem:test
-    driverClassName: org.h2.Driver
+  datasource:
+    url: jdbc:h2:~/test;MODE=MYSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;
     username: sa
-    password:
-
   jpa:
     hibernate:
       ddl-auto: create-drop
-    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  redis:
+    host: localhost
+    port: 6379
+jwt:
+  header: Authorization
+  secret: 64461f01e1af406da538b9c48d801ce59142452199ff112fb5404c8e7e98e3ff
+  token-validity-in-seconds: 86400
+
+iamport:
+  api_key: 8114051028354368
+  api_secret: EBUlx9b3D8SXaTQjJqeMi6f4AiKdxOIw0fAaYI9VTSvSBsxpKg95tFKajbRd919mKImxX9Rzxsfi9h9f
+  api_url: https://api.iamport.kr
