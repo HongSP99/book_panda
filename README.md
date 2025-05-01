@@ -3,18 +3,23 @@
 
 ## 시연 이미지
 - 메인페이지
+  
 ![img.png](assets/img.png)
 
 - 장바구니
+  
 ![img_1.png](assets/img_1.png)
 
 - 주문 페이지
+  
 ![img_3.png](assets/img_3.png)
 
 - 주문 상세 페이지
+  
 ![img_4.png](assets/img_4.png)
 
 - 결제 페이지
+  
 ![img_2.png](assets/img_2.png)
 
 ## 프로젝트 소개
