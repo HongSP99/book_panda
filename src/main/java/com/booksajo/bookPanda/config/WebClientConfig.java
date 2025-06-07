@@ -1,4 +1,4 @@
-package com.booksajo.bookPanda.book.config;
+package com.booksajo.bookPanda.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
