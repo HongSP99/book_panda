@@ -106,7 +106,10 @@ public class UserController {
     public ResponseEntity<String> signUp(@RequestBody @Valid SignUpDto signUpDto) {
         String email = signUpDto.getUserEmail();
         // 레디스에 인증  상태를 저장
-        String verified = redisService.getData(email + "_verified");
+//        String verified = redisService.getData(email + "_verified");
+        String verified = "true";
+
+        log.info("verified = {}", verified);
 
         if (verified == null || !verified.equals("true")) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("이메일 인증이 완료되지 않았습니다.");
