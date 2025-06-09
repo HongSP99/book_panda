@@ -28,7 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 @Slf4j
 public class UserServiceImpl implements UserService {
 
@@ -37,7 +36,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public JwtToken signIn(String userEmail, String userPassword) {
         User user = userRepository.findByUserEmail(userEmail).orElseThrow();
@@ -112,7 +111,7 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public JwtToken refreshAccessToken(String refreshToken) {
         // 리프레시 토큰에서 사용자 정보 추출
         String userEmail = jwtTokenProvider.extractUserEmail(refreshToken);

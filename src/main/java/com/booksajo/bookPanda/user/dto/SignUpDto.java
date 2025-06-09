@@ -24,6 +24,7 @@ public class SignUpDto {
     private String phoneNumber;
     private List<String> roles;
     private String authCode;
+    @Builder.Default
     private Boolean resign = false;
 
     public User toEntity(String encodedPassword, List<String> roles) {

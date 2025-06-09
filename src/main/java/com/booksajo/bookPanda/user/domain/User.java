@@ -76,6 +76,17 @@ public class User implements UserDetails {
     @Builder.Default
     private List<String> roles = new ArrayList<>();
 
+    public User(String userEmail, String userPassword, String name, String address, String detailedAddress, String postCode, String phoneNumber){
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.name = name;
+        this.address = address;
+        this.detailedAddress = detailedAddress;
+        this.postCode = postCode;
+        this.phoneNumber = phoneNumber;
+        this.resign = false;
+    }
+
     @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
