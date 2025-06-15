@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void updateName(String userEmail, String newName) {
         User user = userRepository.findByUserEmail(userEmail).orElseThrow(() -> new RuntimeException("로그인 정보가 일치하지 않습니다."));
-        user.setName(newName);
+        user.updateName(newName);
         userRepository.save(user);
      }
 
@@ -107,7 +107,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public void deleteUser(User user) {
-        user.setResign(true);
+        user.updateResign(true);
         userRepository.save(user);
     }
 

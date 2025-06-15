@@ -15,6 +15,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootTest
 public class UserServiceImplTest {
@@ -22,6 +23,8 @@ public class UserServiceImplTest {
     private UserServiceImpl userService;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     UserServiceImplTest() {
     }
@@ -74,5 +77,31 @@ public class UserServiceImplTest {
         //when, then
         assertThatThrownBy(() -> userService.signUp(signUpDto))
                 .isInstanceOf(UserException.class);
+    }
+
+    @DisplayName("회원 탈퇴")
+    @Test
+    void deleteUser(){
+        //given
+        User user = userRepository.save(new User("tmdvy0801@gmail.com", "12345678",
+                "홍승표", "01012345678", "기흥구", "관곡로", "12345"));
+
+        //when
+        userService.deleteUser(user);
+
+        //then
+        assertThat(user.getResign()).isTrue();
+    }
+
+    @DisplayName("비밀번호 정상적으로 암호화")
+    @Test
+    void encryptPassword(){
+        String password = "asd";
+
+        String encryptedPassword = passwordEncoder.encode(password);
+
+        Boolean match = passwordEncoder.matches(password, encryptedPassword);
+
+        assertThat(match).isTrue();
     }
 }

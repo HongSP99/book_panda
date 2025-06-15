@@ -31,7 +31,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor(access = PROTECTED)
 @AllArgsConstructor
 @Builder
@@ -52,7 +51,7 @@ public class User implements UserDetails {
     private String userPassword;
 
     @NotBlank
-    @Column(name = "user_name") //, nullable = false
+    @Column(name = "user_name", nullable = false)
     private String name;
 
     @Column
@@ -107,6 +106,14 @@ public class User implements UserDetails {
 
     public void updatePhoneNumber(String newPhoneNumber) {
         this.phoneNumber = newPhoneNumber;
+    }
+
+    public void updateName(String newName) {
+        this.name = newName;
+    }
+
+    public void updateResign(boolean Resign){
+        this.resign = resign;
     }
 
     @Override

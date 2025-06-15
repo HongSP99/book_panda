@@ -1,6 +1,7 @@
 package com.booksajo.bookPanda.user.dto;
 
 import com.booksajo.bookPanda.user.domain.User;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.ToString;
 @Getter
 @ToString
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class UserDto {
 
